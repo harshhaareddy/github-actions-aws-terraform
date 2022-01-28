@@ -1,11 +1,10 @@
 name: "AWS-ECR"
 
-# Only trigger, when the build workflow succeeded
 on:
-  workflow_run:
-    workflows: ["Terraform"]
-    types:
-      - completed
+  push:
+    branches:
+      - development
+  pull_request:
 
 jobs:
   aws-ecr:
