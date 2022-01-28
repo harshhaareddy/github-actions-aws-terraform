@@ -283,12 +283,3 @@ resource "aws_cloudwatch_log_group" "dummyapi" {
     Application = "${var.prefix}-app"
   }
 }
-
-// example -> ./push.sh . 123456789012.dkr.ecr.us-east-1.amazonaws.com/hello-world latest
-
-resource "null_resource" "push" {
-  provisioner "local-exec" {
-     command     = "${coalesce("./push.sh", "${path.module}/push.sh")} ${var.source_path} ${aws_ecr_repository.repo.repository_url} ${var.tag} ${data.aws_caller_identity.current.account_id}"
-     interpreter = ["bash", "-c"]
-  }
-}
