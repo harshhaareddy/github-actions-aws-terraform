@@ -8,6 +8,9 @@ on:
 
 jobs:
   terraform:
+  aws-ecr:
+    needs: terraform
+  terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
