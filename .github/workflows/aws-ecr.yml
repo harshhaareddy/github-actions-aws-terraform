@@ -1,14 +1,14 @@
-name: "AWS-ECR"
+name: "AWS-ECR-Build-Push"
 
 on:
   push:
     branches:
-      - development
+      - master
   pull_request:
 
 jobs:
   aws-ecr:
-    name: AWS-ECR
+    name: AWS-ECR-Build-Push
     runs-on: ubuntu-latest
 
     steps:
