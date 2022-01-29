@@ -1,10 +1,14 @@
 name: "AWS-ECR-Build-Push"
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'ECR Repo Push'     
+        required: true
+        default: 'Success'
+      tags:
+        description: 'Build and Push ECR repo'
 
 jobs:
   aws-ecr:
