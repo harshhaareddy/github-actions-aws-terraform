@@ -1,14 +1,10 @@
 name: "Terraform-Destroy-Infrastructure"
 
-on: 
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Terraform Destroy'     
-        required: true
-        default: 'Success'
-      tags:
-        description: 'Destroy Infrastructure'
+on:
+  push:
+    branches:
+      - master
+  pull_request:
   
 jobs:
   terraform:
